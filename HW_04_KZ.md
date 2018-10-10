@@ -256,4 +256,4 @@ new_gap %>%
 
 ![](HW_04_KZ_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
-Please see the 2nd part of my assignment in **part 2** linked [here]() and in my README file. The file was too big to be in one so I split it up into two.
+Please see the 2nd part of my assignment in **part 2** linked [here](https://github.com/STAT545-UBC-students/hw04-katiezinn-1/blob/master/HW_04_KZ_Part2.md) and in my README file. The file was too big to be in one so I split it up into two.
