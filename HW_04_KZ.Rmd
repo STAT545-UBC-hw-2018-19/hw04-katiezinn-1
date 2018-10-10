@@ -26,6 +26,7 @@ For this assignment I will use the **gapminder** dataset. I will begin by loadin
 suppressPackageStartupMessages(library(gapminder))
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(kableExtra))
 ```
 
 For this task I plan to use the *gather* and *spread* functions. Before I begin let's talk about what these functions are.
@@ -137,3 +138,5 @@ gapminder_animals %>%
 ### full_join(x, y): Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing. This is a mutating join.
 
 After running through the scenarios, it is clear that some types of the join function were more functional for my dataset than others. The full_join was not beneficial because it spat out all entries, even when there were NA values for countries that did not have a naitonal animal input. Inner join did not look that great either as it resulted in multiple entries for each country. There are clearly different types of join functions to suit your needs. 
+
+> I want to mention that I wanted to make my tables scroll tables, but that would require me to change my output to HTML. I wanted to leave it as a github document. Cheers!
