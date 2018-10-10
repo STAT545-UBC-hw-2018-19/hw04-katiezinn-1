@@ -1,0 +1,90 @@
+---
+title: "KZ_HW04_Part2"
+output: 
+    github_document:
+        toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+suppressPackageStartupMessages(library(gapminder))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(kableExtra))
+```
+
+# Task #2
+
+## Activity 1: 
+Create a second data frame, complementary to Gapminder. Join this with (part of) Gapminder using a dplyr join function and make some observations about the process and result. Explore the different types of joins. Examples of a second data frame you could build:
+One row per country, a country variable and one or more variables with extra info, such as language spoken, NATO membership, national animal, or capitol city.
+One row per continent, a continent variable and one or more variables with extra info, such as northern versus southern hemisphere.
+
+I will accomplish this task by using gapminder (a pre-existing dataset) and a dataset that I created, by importing it.
+
+
+```{r}
+#Now I will upload and view my data
+country_animals <- read.csv("~/Documents/country_nat_animals.csv")
+
+#Next, I will put my data in a table so you can see it 
+country_animals %>%
+  knitr::kable(align = "c")
+```
+
+Okie dokie. My next mission is to join this with the gapminder dataset. I will combine the gapminder dataset and the national animals column from the country_animals dataset. 
+
+```{r}
+gapminder_animals <- country_animals %>% 
+  select(country, National.Animal)
+
+#What I will do next is test out the different types of join functions
+
+#Let's start with an inner join:
+gapminder_animals %>%
+  inner_join(gapminder, national.animal, by = "country") %>%
+  knitr::kable(align = "c")
+```
+### inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+
+```{r}
+#Next, let's try a semi-join:
+gapminder_animals %>%
+  semi_join(gapminder, national.animal, by = "country") %>%
+  knitr::kable(align = "c")
+```
+
+### semi_join(x, y): Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.
+
+```{r}
+#Next, let's try a left join:
+gapminder_animals %>%
+  left_join(gapminder, national.animal, by = "country") %>%
+  knitr::kable(align = "c")
+```
+
+### left_join(x, y): Return all rows from x, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
+
+```{r}
+#Next, let's try an anti join:
+gapminder_animals %>%
+  anti_join(gapminder, national.animal, by = "country") %>%
+  knitr::kable(align = "c")
+```
+
+### anti_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
+
+```{r}
+#Next, let's try a full join:
+gapminder_animals %>%
+  full_join(gapminder, national.animal, by = "country") %>%
+  knitr::kable(align = "c")
+```
+
+### full_join(x, y): Return all rows and all columns from both x and y. Where there are not matching values, returns NA for the one missing. This is a mutating join.
+
+After running through the scenarios, it is clear that some types of the join function were more functional for my dataset than others. The full_join was not beneficial because it spat out all entries, even when there were NA values for countries that did not have a naitonal animal input. Inner join did not look that great either as it resulted in multiple entries for each country. There are clearly different types of join functions to suit your needs. 
+
+> I want to mention that I wanted to make my tables scroll tables, but that would require me to change my output to HTML. I wanted to leave it as a github document. Cheers!
