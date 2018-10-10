@@ -243,7 +243,9 @@ New Zealand
 </table>
 ``` r
 #This gives us a table giving the year, each country, and the life expectancy for each country. Next I will make a scatterplot of life expectancy for Canada against New Zealand
+```
 
+``` r
 new_gap %>% 
   ggplot(aes(Canada, Australia)) +
   geom_jitter() +
@@ -252,6 +254,6 @@ new_gap %>%
   ggtitle("Canada vs Australia life expectancy") 
 ```
 
-![](HW_04_KZ_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](HW_04_KZ_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 Please see the 2nd part of my assignment in **part 2** linked [here]() and in my README file. The file was too big to be in one so I split it up into two.

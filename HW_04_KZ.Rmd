@@ -54,18 +54,19 @@ spread(country, lifeExp)
 
 new_gap %>%
    knitr::kable(align = "c", caption = "Canada, Australia, and New Zealand's Life Expectancy Per Year")
-
-
 #This gives us a table giving the year, each country, and the life expectancy for each country. Next I will make a scatterplot of life expectancy for Canada against New Zealand
 
+```
+
+```{r}
 new_gap %>% 
   ggplot(aes(Canada, Australia)) +
   geom_jitter() +
   geom_smooth(method = "loess") +
   geom_point() +
   ggtitle("Canada vs Australia life expectancy") 
-
 ```
+
 
 Please see the 2nd part of my assignment in **part 2** linked [here]() and in my README file. The file was too big to be in one so I split it up into two.
 
