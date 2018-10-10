@@ -65,7 +65,6 @@ new_gap %>%
   geom_point() +
   ggtitle("Canada vs Australia life expectancy") 
 
-
 ```
 
 # Task #2
