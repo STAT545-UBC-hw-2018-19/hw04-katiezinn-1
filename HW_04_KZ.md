@@ -241,9 +241,7 @@ New Zealand
 </tr>
 </tbody>
 </table>
-``` r
-#This gives us a table giving the year, each country, and the life expectancy for each country. Next I will make a scatterplot of life expectancy for Canada against New Zealand
-```
+This gives us a table giving the year, each country, and the life expectancy for each country. Next I will make a scatterplot of life expectancy for Canada against New Zealand
 
 ``` r
 new_gap %>% 
