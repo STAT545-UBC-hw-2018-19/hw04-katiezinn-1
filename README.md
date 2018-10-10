@@ -7,4 +7,4 @@ In this assignment I will "solidifying my data wrangling skills"... :smile:
 
 Here is the link for my assignment: 
 
-[hw04_katiezinn](link)
+[HW_04_KZ](https://github.com/STAT545-UBC-students/hw04-katiezinn-1/blob/master/HW_04_KZ.md)
